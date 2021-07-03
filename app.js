@@ -43,6 +43,7 @@ onMouseMove = e => {
 
 onTouchMove = e => {
   console.log(e);
+
   const x = e.touches[0].clientX-canvas.getBoundingClientRect().left;
   const y = e.touches[0].clientY-canvas.getBoundingClientRect().top;
   if (!painting) {
@@ -56,6 +57,11 @@ onTouchMove = e => {
 
 startPainting = () => {
   painting = true;
+};
+
+startPainting_1 = () => {
+  painting = true;
+  ctx.beginPath();
 };
 
 handleCanvasClick = () => {
@@ -80,7 +86,7 @@ if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
   canvas.addEventListener("touchmove",onTouchMove)
   canvas.addEventListener('touchend',stopPainting);
-  canvas.addEventListener("touchstart",startPainting);
+  canvas.addEventListener("touchstart",startPainting_1);
   canvas.addEventListener("mousedown", startPainting);
   canvas.addEventListener("mouseup", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);
