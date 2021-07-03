@@ -8,8 +8,8 @@ const erase = document.getElementById("jsErase");
 const palette = document.getElementById("palette");
 const reset = document.getElementById("jsReset");
 
-canvas.width = 1500;
-canvas.height = 700;
+canvas.width = canvas.getBoundingClientRect().width;
+canvas.height = canvas.getBoundingClientRect().height;
 // 기본 설정
 ctx.fillStyle = "white";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -29,8 +29,22 @@ stopPainting = () => {
 
 onMouseMove = e => {
   console.log(e);
+  
   const x = e.offsetX;
   const y = e.offsetY;
+  if (!painting) {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  } else {
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  }
+};
+
+onTouchMove = e => {
+  console.log(e);
+  const x = e.touches[0].clientX-canvas.getBoundingClientRect().left;
+  const y = e.touches[0].clientY-canvas.getBoundingClientRect().top;
   if (!painting) {
     ctx.beginPath();
     ctx.moveTo(x, y);
@@ -64,6 +78,9 @@ handleSaveClick = () => {
 
 if (canvas) {
   canvas.addEventListener("mousemove", onMouseMove);
+  canvas.addEventListener("touchmove",onTouchMove)
+  canvas.addEventListener('touchend',stopPainting);
+  canvas.addEventListener("touchstart",startPainting);
   canvas.addEventListener("mousedown", startPainting);
   canvas.addEventListener("mouseup", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);

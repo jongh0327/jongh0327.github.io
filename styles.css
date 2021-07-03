@@ -8,8 +8,8 @@ body {
 }
 
 .canvas {
-  width: 1500px;
-  height: 700px;
+  width: 70%;
+  height: 70vh;
   background-color: white;
   border-radius: 15px;
   box-shadow: 6px 6px 5px grey;
@@ -74,4 +74,8 @@ body {
 
 .controls .controls__range {
   margin-top: 20px;
+}
+
+#warning{
+  margin: 5px;
 }
