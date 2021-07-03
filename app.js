@@ -44,7 +44,7 @@ onMouseMove = e => {
 onTouchMove = e => {
   console.log(e);
   const x = e.touches[0].clientX-canvas.getBoundingClientRect().left;
-  const y = e.touches[0].clientY-canvas.getBoundingClientRect().top;
+  const y = e.touches[0].clientY;
   if (!painting) {
     ctx.beginPath();
     ctx.moveTo(x, y);
