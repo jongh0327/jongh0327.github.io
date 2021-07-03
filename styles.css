@@ -15,10 +15,11 @@ body {
   border-radius: 15px;
   box-shadow: 6px 6px 5px grey;
 }
-
+/*
 .controls .controls__colors {
   display: flex;
-}
+}*/
+
 .controls__colors .controls__color {
   width: 50px;
   height: 50px;
@@ -26,12 +27,14 @@ body {
   margin-right: 5px;
   cursor: pointer;
   box-shadow: 3px 3px 5px grey;
+  display: inline-block;
 }
 
-.jscolor {
+.controls__colors .jscolor {
   color: transparent;
   font-size: 0;
   line-height: 0;
+  display: inline-block;
 
   width: 50px;
   height: 50px;
@@ -44,14 +47,21 @@ body {
 
 .controls {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+}
+
+.controls__range{
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .controls .controls__btns {
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
+
 
 .controls__btns button:active {
   transform: scale(0.98);
@@ -71,6 +81,7 @@ body {
   text-transform: uppercase;
   font-weight: 600;
   font-size: 12px;
+  display: inline-block;
 }
 
 .controls .controls__range {
