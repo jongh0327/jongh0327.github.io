@@ -1,5 +1,6 @@
 @import "./reset.css";
 body {
+  overscroll-behavior: contain;
   background-color: #e6e6fc;
   display: flex;
   flex-direction: column;
@@ -9,7 +10,7 @@ body {
 
 .canvas {
   width: 70%;
-  height: 50vh;
+  height: 70vh;
   background-color: white;
   border-radius: 15px;
   box-shadow: 6px 6px 5px grey;
